@@ -1,0 +1,2 @@
+{"ts":1374779007307,"silentsave":true,"restoring":false,"patch":[[]],"length":0}
+{"contributors":[],"silentsave":false,"ts":1374779282945,"patch":[[{"diffs":[[1,"module OmniAuth\n  module Feedly\n    VERSION = \"1.0.0\"\n  end\nend"]],"start1":0,"start2":0,"length1":0,"length2":63}]],"length":63,"saved":false}
