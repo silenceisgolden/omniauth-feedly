@@ -1,2 +1,0 @@
-{"ts":1374779083011,"silentsave":true,"restoring":false,"patch":[[]],"length":0}
-{"contributors":[],"silentsave":false,"ts":1374779344852,"patch":[[{"diffs":[[1,"require 'omniauth/feedly/version'\nrequire 'omniauth/strategies/feedly'"]],"start1":0,"start2":0,"length1":0,"length2":70}]],"length":70,"saved":false}
