@@ -1,7 +1,4 @@
 require 'omniauth/strategies/oauth2'
-require 'base64'
-require 'openssl'
-require 'rack/utils'
 
 module OmniAuth
   module Strategies
@@ -19,7 +16,7 @@ module OmniAuth
       
       info do
         {
-          :name => raw_info['email']
+          :email => raw_info['email']
         }
       end
       
