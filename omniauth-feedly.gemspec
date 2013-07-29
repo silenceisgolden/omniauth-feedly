@@ -3,7 +3,7 @@ require './lib/omniauth/feedly/version'
 
 Gem::Specification.new do |s|
     s.name = 'omniauth-feedly'
-    s.version = Omniauth::Feedly::VERSION
+    s.version = OmniAuth::Feedly::VERSION
     s.authors = ['AJ Klein']
     s.email = ['aj@buzzshift.com']
     s.summary = 'Feedly strategy for OmniAuth'
