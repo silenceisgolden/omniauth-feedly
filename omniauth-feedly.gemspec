@@ -1,15 +1,15 @@
 $:.push File.expand_path('../lib', __FILE__)
 require 'omniauth/feedly/version'
 
-Gem::Specification.new do |f|
-    f.name = 'omniauth-feedly'
-    f.version = Omniauth::Feedly::VERSION
-    f.authors = ['AJ Klein']
-    f.email = ['aj@buzzshift.com']
-    f.summary = 'Feedly strategy for OmniAuth'
-    f.executables = 'git ls-files -- bin/*'.split("\n").map{ |g| File.basename(g) }
-    f.files = 'git ls-files'.split("\n")
-    f.test_files = 'git ls-files -- {test,spec,features}/*'.split("\n")
-    f.require_paths = ["lib"]
-    f.add_dependency 'omniauth'
+Gem::Specification.new do |s|
+    s.name = 'omniauth-feedly'
+    s.version = Omniauth::Feedly::VERSION
+    s.authors = ['AJ Klein']
+    s.email = ['aj@buzzshift.com']
+    s.summary = 'Feedly strategy for OmniAuth'
+    s.executables = 'git ls-files -- bin/*'.split("\n").map{ |f| File.basename(f) }
+    s.files = 'git ls-files'.split("\n")
+    s.test_files = 'git ls-files -- {test,spec,features}/*'.split("\n")
+    s.require_paths = ["lib"]
+    s.add_dependency 'omniauth-oauth2'
 end
