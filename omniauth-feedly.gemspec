@@ -1,5 +1,4 @@
-$:.push File.expand_path('../lib', __FILE__)
-require 'omniauth/feedly/version'
+require File.expand_path('omniauth/feedly/version', __FILE__)
 
 Gem::Specification.new do |s|
     s.name = 'omniauth-feedly'
