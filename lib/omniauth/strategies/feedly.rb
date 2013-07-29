@@ -12,7 +12,7 @@ module OmniAuth
         :token_url => '/v3/auth/token'
       }
       
-      feedly_code{ raw_info['id']}
+      uid{ raw_info['id']}
       
       info do
         {
