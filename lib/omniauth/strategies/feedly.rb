@@ -7,7 +7,7 @@ module OmniAuth
       option :name, "feedly"
       
       option :client_options, {
-        :site => 'http://cloud.feedly.com',
+        :site => 'http://sandbox.feedly.com',
         :authorize_url => '/v3/auth/auth',
         :token_url => '/v3/auth/token'
       }
