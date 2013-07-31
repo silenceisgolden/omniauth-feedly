@@ -49,6 +49,10 @@ module OmniAuth
         @raw_info ||= access_token.get('/v3/profile').parsed
       end
       
+      def client_params
+        {:client_id => options[:client_id], :redirect_uri => callback_url ,:response_type => "code"}
+      end
+      
       # find debug point for get access token via fb, oauth2, other oauths
         
     end
