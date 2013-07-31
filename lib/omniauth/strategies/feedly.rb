@@ -27,11 +27,13 @@ module OmniAuth
         }
       end
       
+=begin
       credentials do
         prune!({
           'expires_in' => access_token.expires_in
         })
       end
+=end
       
       extra do
         {
