@@ -18,7 +18,7 @@ module OmniAuth
       
       option :callback_url
       
-      option :auth_token_params, {:grant_type => 'authorization_code', :state}
+      option :auth_token_params, {:grant_type, :state}
       #:grant_type needs to be 'authorization_code'
       
       
