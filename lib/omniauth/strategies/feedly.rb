@@ -14,6 +14,10 @@ module OmniAuth
         :token_url => '/v3/auth/token'
       }
       
+      option :access_token_options, {
+        :header_format => 'OAuth %s',
+        :param_name => 'access_token'
+      }
       
       uid{ raw_info['id']}
       
@@ -33,6 +37,19 @@ module OmniAuth
         {
           'raw_info' => raw_info
         }
+      end
+      
+      def build_access_token
+        if access_token = request.params["access_token"]
+          ::OAuth2::AccessToken.from_hash(
+            client, 
+            {"access_token" => access_token}.update(access_token_options)
+          )
+        else
+          with_authorization_code! {super}.tap do |token|
+            token.options.merge!(access_token_options)
+          end
+        end
       end
       
       def request_phase
