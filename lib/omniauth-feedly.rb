@@ -1,1 +1,1 @@
-require 'omniauth/feedly'
+require File.join('omniauth', 'feedly')

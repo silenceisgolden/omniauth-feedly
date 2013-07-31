@@ -1,2 +1,1 @@
-require 'omniauth/feedly/version'
-require 'omniauth/strategies/feedly'
+require File.join('omniauth', 'strategies', 'feedly')
