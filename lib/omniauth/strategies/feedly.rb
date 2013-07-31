@@ -56,6 +56,8 @@ module OmniAuth
           params[:scope] ||= DEFAULT_SCOPE
         end
       end
+      
+      # find debug point for get access token via fb, oauth2, other oauths
     end
   end
 end
