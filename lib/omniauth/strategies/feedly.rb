@@ -70,6 +70,12 @@ module OmniAuth
         {:client_id => options[:client_id], :redirect_uri => callback_url ,:response_type => "code"}
       end
       
+      def with_authorization_code!
+        if request.params.key?('code')
+          yield
+        end
+      end
+      
       # find debug point for get access token via fb, oauth2, other oauths
         
     end
