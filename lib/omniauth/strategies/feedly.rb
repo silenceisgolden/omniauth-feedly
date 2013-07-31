@@ -14,13 +14,6 @@ module OmniAuth
         :token_url => '/v3/auth/token'
       }
       
-      option :authorize_options, [:scope, :state]
-      
-      option :callback_url
-      
-      option :token_options, [:grant_type, :state]
-      #:grant_type needs to be 'authorization_code'
-      
       
       uid{ raw_info['id']}
       
@@ -30,42 +23,38 @@ module OmniAuth
         }
       end
       
+      credentials do
+        prune!({
+          'expires_in' => access_token.expires_in
+        })
+      end
+      
       extra do
         {
           'raw_info' => raw_info
         }
       end
       
+      def request_phase
+        options[:authorize_params] = client_params.merge(options[:authorize_params])
+        super
+      end
+      
+      def auth_hash
+        OmniAuth::Utils.deep_merge(super, client_params.merge({
+          :grant_type => 'authorization_code'}))
+        end
+      
       def raw_info
         @raw_info ||= access_token.get('/v3/profile').parsed
       end
       
-      def authorize_params
-        super.tap do |params|
-          ["scope", "state"].each do |v|
-            if request.params[v]
-              params[v.to_sym] = request.params[v]
-
-              # to support omniauth-oauth2's auto csrf protection
-              session['omniauth.state'] = params[:state] if v == 'state'
-            end
-          end
-
-          params[:scope] ||= DEFAULT_SCOPE
-        end
-      end
-      
-      def callback_url
-        if @authorization_code_from_signed_request
-          ''
-        else
-          options[:callback_url] || super
-        end
-      end
-      
       # find debug point for get access token via fb, oauth2, other oauths
+        
     end
   end
 end
+
+OmniAuth.config.add_camelization 'feedly', 'Feedly'
     
     
