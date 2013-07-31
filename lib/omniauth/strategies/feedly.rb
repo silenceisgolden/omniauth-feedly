@@ -66,6 +66,10 @@ module OmniAuth
         @raw_info ||= access_token.get('/v3/profile').parsed
       end
       
+      def access_token_options
+        options.access_token_options.inject({}) { |h,(k,v)| h[k.to_sym] = v; h }
+      end
+      
       def client_params
         {:client_id => options[:client_id], :redirect_uri => callback_url ,:response_type => "code"}
       end
