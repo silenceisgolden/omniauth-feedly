@@ -18,6 +18,11 @@ module OmniAuth
       
       option :callback_url
       
+      option :token_params, {
+        :grant_type => 'authorization_code',
+        :state => ''
+      }
+      
       
       uid{ raw_info['id']}
       
