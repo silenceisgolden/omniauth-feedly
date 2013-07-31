@@ -18,10 +18,8 @@ module OmniAuth
       
       option :callback_url
       
-      option :token_params, {
-        :grant_type => 'authorization_code',
-        :state => ''
-      }
+      option :auth_token_params, {:grant_type => 'authorization_code', :state}
+      #:grant_type needs to be 'authorization_code'
       
       
       uid{ raw_info['id']}
@@ -54,6 +52,14 @@ module OmniAuth
           end
 
           params[:scope] ||= DEFAULT_SCOPE
+        end
+      end
+      
+      def callback_url
+        if @authorization_code_from_signed_request
+          ''
+        else
+          options[:callback_url] || super
         end
       end
       
